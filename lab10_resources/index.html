@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+
+            <div id="page-banner">
+                <h1 class="title">Bookorama</h1>
+                <p>Books for Ninjas</p>
+                <form id="search-books">
+                    <input type="text" placeholder="Search books.." />
+                </form>
+            </div>
+        </header>
+
+
+        <div id="book-list">
+            <h2 class="title">Books to read</h2>
+
+        </div>
+        <form id="add-book">
+            <input type="text" id="bookName" name="bookName" placeholder="Book name.." />
+            <button>Add</button>
+        </form>
+
+    </div>
+    <script>
+        const bookList = document.getElementById('book-list');
+
+         //Function to display a list of books retrieved from the backend on the same page.
+        function fetchBooks(){
+            fetch('/books')
+            .then(response => response.json())
+            .then(books => {
+
+                // Complete the codes to dynamically display a list of books retrieved from the backend.
+                // Hint: you can create HTML elements on the fly according to the following commented codes in div id= 'book-list' element.	    
+
+
+
+            })
+            .catch(error => console.error('Error fetching books:', error));
+        }
+              
+        fetchBooks();
+
+        // Add event listener for submitting new books
+        
+    </script>
+</body>
+
+</html>
