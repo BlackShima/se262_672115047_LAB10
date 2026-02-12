@@ -16,6 +16,7 @@ app.post("/", function(req, res) {
 
     axios.get(url)
         .then(response => {
+            console.log(response.data);
             const data = response.data;
             const temp = data.main.temp;
             const desc = data.weather[0].description;
