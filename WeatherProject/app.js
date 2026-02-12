@@ -37,8 +37,8 @@ app.post("/", function(req, res) {
             const pm10 = pollutionData.components.pm10;
             const pm2_5 = pollutionData.components.pm2_5;
             res.write("<p>The Air Quality Index is " + aqi + "</p>");
-            res.write("<p>The PM10:" + pm10 + " µg/m³</p>");
-            res.write("<p>The PM2.5:" + pm2_5 + " µg/m³</p>");
+            res.write("<p>The PM10: " + pm10 + "</p>");
+            res.write("<p>The PM2.5: " + pm2_5 + "</p>");
             res.end();
         })
         .catch(err => {
