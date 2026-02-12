@@ -19,13 +19,35 @@ let books = [
 ];
 
 // Write APIs to support CRUD operations
+app.get('/api/books', (req, res) => {
+    res.json(books);
+});
 
+app.post('/api/books', (req, res) => {
+    const newBook = {
+        bookNo: books.length > 0 ? books[books.length - 1].bookNo + 1 : 1,
+        bookName: req.body.bookName
+    };
+    books.push(newBook);
+    res.json(books);
+});
 
+app.delete('/api/books/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    books = books.filter(book => book.bookNo !== id);
+    res.json(books);
+});
 
-
-
-
-
+app.put('/api/books/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const updatedName = req.body.bookName;
+    
+    const book = books.find(b => b.bookNo === id);
+    if (book) {
+        book.bookName = updatedName;
+    }
+    res.json(books);
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
